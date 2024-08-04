@@ -6,6 +6,17 @@ const Header =()=>{
     const navLinkWork = useRef();
     const navLinkContact = useRef();
 
+    useEffect(() => {
+      const route = document.getElementsByClassName('header__route');
+      for (let i = 0; i <= route.length; i++) {
+        route[i]?.addEventListener('mouseover', function () {
+          this.nextSibling.classList.add('header__route-bg-animation');
+        });
+        route[i]?.addEventListener('mouseout', function () {
+          this.nextSibling.classList.remove('header__route-bg-animation');
+        });
+      }
+    });
 
     function showHideNavbar() {
         const navLinksDisplay = document.getElementById('header__nav-links');
